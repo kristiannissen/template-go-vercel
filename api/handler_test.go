@@ -1,4 +1,4 @@
-package api
+package handler
 
 import (
 	"io"
@@ -7,11 +7,11 @@ import (
 	"testing"
 )
 
-func TestRecent(t *testing.T) {
+func TestHandler(t *testing.T) {
 	req := httptest.NewRequest(http.MethodGet, "/hello", nil)
 	w := httptest.NewRecorder()
 
-	Hello(w, req)
+	Handler(w, req)
 
 	res := w.Result()
 	defer res.Body.Close()
