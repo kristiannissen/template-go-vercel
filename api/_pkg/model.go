@@ -5,5 +5,5 @@ type Model struct {
 }
 
 func NewModel() *Model {
-	return & Model{Name: "Kitty"}
+	return &Model{Name: "Kitty"}
 }
