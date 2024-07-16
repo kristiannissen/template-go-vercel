@@ -94,6 +94,11 @@ So now I have a way to structure my Go project and use it on Vercel!
 │   │   └── model.go
 │   ├── hello.go
 │   └── hello_test.go
+├── cmd
+│   ├── api
+│   │   └── main.go
+│   └── cli
+│       └── main.go
 ├── go.mod
 └── public
     └── index.html
@@ -104,7 +109,7 @@ I like writing tests for my code! This folder structure gives me the ability to 
 Because all of the files in the api folder must implement the http.HandlerFunc signature they rely on [net/http/httptest](https://pkg.go.dev/net/http/httptest@go1.22.1) which is why it made sense to me to have a separate test file for those test cases.
 
 ### Working locally
-As mentioned I like writing tests for my code, but to test the frontend part while working locally I created a file that implements the http.ListenAndServe function to work as a simple HTTP server. This file is created in the _pkg/cmd/ subfolder, which follows the guidelines from the standard structure.
+I prefer writing tests for my code when I work locally, but I added a small mux that you can run from your command-line, use go run ./cmd/api -port=1234 or which ever port number you prefer to run the API locally. You will have to add the handler functions yourself ;)
 
 **Notes**
 
